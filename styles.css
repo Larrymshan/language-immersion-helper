@@ -1,0 +1,63 @@
+.translated-word {
+  color: #1a73e8;
+  cursor: pointer;
+  position: relative;
+  text-decoration: underline dotted;
+}
+
+.translated-word:hover {
+  color: #0d47a1;
+}
+
+.translation-popup {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 8px 12px;
+  z-index: 10000;
+  font-size: 14px;
+  min-width: 150px;
+  text-align: center;
+}
+
+.translation-popup:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.translation-popup .original {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.translation-popup .play-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.translation-popup .play-button:hover {
+  background-color: #3367d6;
+}
+
+.translation-source {
+  color: #666;
+  font-size: 10px;
+  margin-top: 3px;
+}

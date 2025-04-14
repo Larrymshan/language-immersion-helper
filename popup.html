@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PieceByPiece</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .setting {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #4285f4;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <h2>PieceByPiece Language Immersion</h2>
+  
+  <!-- Enable Extension Toggle -->
+  <div class="setting">
+    <label for="enabled">Enable Extension:</label>
+    <label class="switch">
+      <input type="checkbox" id="enabled" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <!-- Language Mode Toggle -->
+  <div class="setting">
+    <label for="languageMode">Language Mode: <span id="languageModeLabel">Random</span></label>
+    <label class="switch">
+      <input type="checkbox" id="languageMode">
+      <span class="slider"></span>
+    </label>
+    <small>Toggle to Fixed mode to choose one language only.</small>
+  </div>
+  
+  <!-- Fixed Language Selection (visible only if Fixed mode is active) -->
+  <div class="setting" id="fixedLanguageSection" style="display:none;">
+    <label for="targetLanguage">Choose target language:</label>
+    <select id="targetLanguage">
+      <option value="spanish">Spanish</option>
+      <option value="german">German</option>
+      <option value="french">French</option>
+    </select>
+  </div>
+  
+  <!-- Languages to include for Random Mode -->
+  <div class="setting" id="languageCheckboxes">
+    <label>Languages to include (for Random mode):</label>
+    <div>
+      <input type="checkbox" id="spanish" checked>
+      <label for="spanish">Spanish</label>
+    </div>
+    <div>
+      <input type="checkbox" id="german" checked>
+      <label for="german">German</label>
+    </div>
+    <div>
+      <input type="checkbox" id="french" checked>
+      <label for="french">French</label>
+    </div>
+  </div>
+  
+  <!-- Translation Density and Max Words -->
+  <div class="setting">
+    <label for="density">Translation Density:</label>
+    <select id="density">
+      <option value="low">Low (1-2%)</option>
+      <option value="medium" selected>Medium (3-5%)</option>
+      <option value="high">High (6-8%)</option>
+    </select>
+  </div>
+  
+  <div class="setting">
+    <label for="maxWords">Maximum words per translation:</label>
+    <select id="maxWords">
+      <option value="1">1 word</option>
+      <option value="2">2 words</option>
+      <option value="3">3 words</option>
+    </select>
+  </div>
+  
+  <!-- Apply Button -->
+  <div class="setting" style="margin-top: 15px;">
+    <button id="apply">Apply</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
